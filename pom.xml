@@ -15,6 +15,7 @@
 		<java.version>1.6</java.version>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
+		<newRelic.version>2.21.4</newRelic.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +35,7 @@
 		<dependency>
 			<groupId>newrelic.java-agent</groupId>
 			<artifactId>newrelic-api</artifactId>
-			<version>2.21.4</version>
+			<version>${newRelic.version}</version>
 		</dependency>
 
 
@@ -176,10 +177,16 @@
 									<version>7.4.5.v20110725</version>
 									<destFileName>jetty-runner.jar</destFileName>
 								</artifactItem>
+								<artifactItem>
+								    <groupId>com.newrelic.agent.java</groupId>
+								    <artifactId>newrelic-agent</artifactId>
+								    <version>${newRelic.version}</version>
+								    <destFileName>newrelic-agent.jar</destFileName>
+								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
-					<execution>
+					<!-- <execution>
 						<id>copy-new-relic</id>
 						<phase>package</phase>
 						<goals>
@@ -190,7 +197,7 @@
 							<includeArtifactIds>newrelic-agent</includeArtifactIds>
 							<stripVersion>true</stripVersion>
 						</configuration>
-					</execution>
+					</execution> -->
 				</executions>
 			</plugin>
 		</plugins>
